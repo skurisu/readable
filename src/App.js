@@ -13,12 +13,6 @@ class App extends Component {
               <Button color="teal">React</Button>
               <Button color="teal">Redux</Button>
               <Button color="teal">Udacity</Button>
-              <div style={{ marginTop: 30 }}>
-                <Button color="green">
-                  Add Comment{' '}
-                  <Icon name="comment" style={{ opacity: 1, marginLeft: 5 }} />
-                </Button>
-              </div>
             </Grid.Column>
             <Grid.Column width={12}>
               <div style={{ float: 'right' }}>
@@ -30,12 +24,14 @@ class App extends Component {
                   content="Upvotes"
                   icon="thumbs outline up"
                   labelPosition="left"
+                  size="tiny"
                 />
                 <Button
                   color="yellow"
                   content="Time ago"
                   icon="time"
                   labelPosition="left"
+                  size="tiny"
                 />
               </div>
 
@@ -94,6 +90,12 @@ class App extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        <div style={{ position: 'fixed', bottom: 25, right: 25 }}>
+          <Button color="green">
+            Add Comment{' '}
+            <Icon name="comment" style={{ opacity: 1, marginLeft: 5 }} />
+          </Button>
+        </div>
       </div>
     );
   }
