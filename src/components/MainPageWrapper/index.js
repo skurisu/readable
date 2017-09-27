@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Grid, Comment } from 'semantic-ui-react';
-import CategoryHeader from '../CategoryHeading/index';
+import { Grid, Item } from 'semantic-ui-react';
+import CategoryHeading from '../CategoryHeading/index';
 import CategoryButton from '../CategoryButton/index';
 import SortOptions from '../SortOptions/index';
-import CommentHeading from '../CommentHeading/index';
-import CommentWrapper from '../CommentWrapper/index';
-import AddCommentButton from '../AddCommentButton/index';
+import PostsHeading from '../PostsHeading/index';
+import PostItem from '../PostItem/index';
+import AddPostButton from '../AddPostButton/index';
 
 class MainPageWrapper extends Component {
   render() {
@@ -14,19 +14,19 @@ class MainPageWrapper extends Component {
         <Grid divided padded>
           <Grid.Row>
             <Grid.Column width={4}>
-              <CategoryHeader />
+              <CategoryHeading />
               <CategoryButton />
             </Grid.Column>
             <Grid.Column width={12}>
               <SortOptions />
-              <Comment.Group>
-                <CommentHeading />
-                <CommentWrapper />
-              </Comment.Group>
+              <Item.Group>
+                <PostsHeading />
+                <PostItem />
+              </Item.Group>
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <AddCommentButton />
+        <AddPostButton />
       </div>
     );
   }

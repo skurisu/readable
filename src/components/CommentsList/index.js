@@ -1,8 +1,8 @@
 import React from 'react';
 import { Comment } from 'semantic-ui-react';
-import CommentActions from '../CommentActions/index';
+import ActionOptions from '../ActionOptions/index';
 
-const CommentWrapper = () => {
+const CommentsList = () => {
   return (
     <Comment>
       <Comment.Content>
@@ -11,10 +11,12 @@ const CommentWrapper = () => {
           <div>Today at 5:42PM</div>
         </Comment.Metadata>
         <Comment.Text>How artistic!</Comment.Text>
-        <CommentActions />
+        <Comment.Actions>
+          <ActionOptions />
+        </Comment.Actions>
       </Comment.Content>
     </Comment>
   );
 };
 
-export default CommentWrapper;
+export default CommentsList;

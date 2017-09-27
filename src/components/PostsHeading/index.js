@@ -1,12 +1,12 @@
 import React from 'react';
 import { Header } from 'semantic-ui-react';
 
-const CommentHeading = () => {
+const PostsHeading = () => {
   return (
     <Header as="h1" dividing>
-      Comments
+      Posts
     </Header>
   );
 };
 
-export default CommentHeading;
+export default PostsHeading;
