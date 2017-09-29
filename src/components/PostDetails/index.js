@@ -2,7 +2,7 @@ import React from 'react';
 
 const PostDetails = props => {
   return (
-    <div>
+    <div style={{ marginBottom: 5 }}>
       <span>Posted by</span>
       <span>
         <strong>Matt</strong>

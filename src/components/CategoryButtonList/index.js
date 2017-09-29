@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 
-class CategoryButton extends Component {
+class CategoryButtonList extends Component {
   render() {
     return (
       <div>
@@ -13,4 +13,4 @@ class CategoryButton extends Component {
   }
 }
 
-export default CategoryButton;
+export default CategoryButtonList;

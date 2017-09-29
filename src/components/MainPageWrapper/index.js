@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Item } from 'semantic-ui-react';
 import CategoryHeading from '../CategoryHeading/index';
-import CategoryButton from '../CategoryButton/index';
+import CategoryButtonList from '../CategoryButtonList/index';
 import SortOptions from '../SortOptions/index';
 import PostsHeading from '../PostsHeading/index';
 import PostItem from '../PostItem/index';
@@ -15,7 +15,7 @@ class MainPageWrapper extends Component {
           <Grid.Row>
             <Grid.Column width={4}>
               <CategoryHeading />
-              <CategoryButton />
+              <CategoryButtonList />
             </Grid.Column>
             <Grid.Column width={12}>
               <SortOptions />
