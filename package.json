@@ -1,4 +1,10 @@
 {
+  "homepage": "http://localhost:3000/",
+  "proxy": {
+    "/categories": {
+      "target": "http://localhost:3001"
+    }
+  },
   "name": "readable-app",
   "version": "0.1.0",
   "private": true,
@@ -9,6 +15,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",
     "redux": "^3.7.2",
+    "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.74.2"
   },
   "scripts": {

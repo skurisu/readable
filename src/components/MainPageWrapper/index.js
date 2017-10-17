@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Item } from 'semantic-ui-react';
 import CategoryHeading from '../CategoryHeading/index';
-import CategoryButtonList from '../CategoryButtonList/index';
+import CategoryButtonList from '../CategoryButtonList';
 import SortOptions from '../SortOptions/index';
 import PostsHeading from '../PostsHeading/index';
 import PostItem from '../PostItem/index';

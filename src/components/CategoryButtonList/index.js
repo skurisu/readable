@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
-import { Button } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { setCategories } from './actions';
+import CategoryButtonList from './component';
 
-class CategoryButtonList extends Component {
-  render() {
-    return (
-      <div>
-        <Button color="teal">React</Button>
-        <Button color="teal">Redux</Button>
-        <Button color="teal">Udacity</Button>
-      </div>
-    );
-  }
+function mapDispatchToProps(dispatch) {
+  return {
+    setCategories: data => {
+      dispatch(setCategories(data));
+    }
+  };
 }
 
-export default CategoryButtonList;
+function mapStateToProps(state) {
+  return { categories: state.categoryButtons.categories };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryButtonList);
+
+// <CategoryButtonList /> // connected to redux
