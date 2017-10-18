@@ -3,6 +3,9 @@
   "proxy": {
     "/categories": {
       "target": "http://localhost:3001"
+    },
+    "/posts": {
+      "target": "http://localhost:3001"
     }
   },
   "name": "readable-app",

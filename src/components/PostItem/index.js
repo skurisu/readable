@@ -1,28 +1,17 @@
-import React, { Component } from 'react';
-import { Item } from 'semantic-ui-react';
-import PostDetails from '../PostDetails/index';
-import ActionOptions from '../ActionOptions/index';
+import { connect } from 'react-redux';
+import { getPosts } from './actions';
+import PostItem from './component';
 
-class PostItem extends Component {
-  render() {
-    return (
-      <Item>
-        <Item.Content>
-          <Item.Header>Arrowhead Valley Camp</Item.Header>
-          <Item.Description>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ex
-            distinctio quod dignissimos, odit voluptas qui quasi assumenda
-            incidunt earum veritatis nemo hic omnis, quis ullam rem quam officia
-            in?
-          </Item.Description>
-          <Item.Meta>
-            <PostDetails />
-            <ActionOptions />
-          </Item.Meta>
-        </Item.Content>
-      </Item>
-    );
-  }
+function mapDispatchToProps(dispatch) {
+  return {
+    getPosts: data => {
+      dispatch(getPosts(data));
+    }
+  };
 }
 
-export default PostItem;
+function mapStateToProps(state) {
+  return { posts: state.allPosts.posts };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostItem);
