@@ -7,7 +7,7 @@ class ActionOptions extends Component {
       <div>
         <Icon link color="green" name="arrow up" />
         <span>
-          <strong>1234</strong>
+          <strong>{this.props.voteScore}</strong>
         </span>
         <Icon link color="red" name="arrow down" style={{ marginLeft: 3.5 }} />
         <span style={{ color: '#2185d0', marginRight: 5, marginLeft: 5 }}>

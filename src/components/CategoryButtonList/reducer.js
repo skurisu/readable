@@ -1,6 +1,6 @@
-import { SET_CATEGORIES } from './actions';
+import { SET_CATEGORIES, SELECT_CATEGORY } from './actions';
 
-const initialState = { categories: [] };
+const initialState = { categories: [], selectedCategory: false };
 
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -8,6 +8,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         categories: action.data
+      };
+    case SELECT_CATEGORY:
+      return {
+        ...state,
+        selectedCategory: action.data
       };
     default:
       return state;

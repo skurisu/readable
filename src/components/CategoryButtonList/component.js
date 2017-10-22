@@ -15,7 +15,11 @@ export default class CategoryButtonList extends Component {
     return (
       <div>
         {categories.map(category => (
-          <Button color="teal" key={category.name}>
+          <Button
+            color="teal"
+            key={category.name}
+            onClick={() => this.props.selectCategory(category.name)}
+          >
             {category.name}
           </Button>
         ))}

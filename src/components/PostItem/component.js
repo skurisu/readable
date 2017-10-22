@@ -7,23 +7,32 @@ import api from './api';
 class PostItem extends Component {
   componentWillMount() {
     api().then(data => {
-      this.props.getPosts(data);
+      this.props.setPosts(data);
+      this.props.setSelectedPosts(data);
     });
   }
 
+  componentDidUpdate(previousProps) {
+    if (previousProps.selectedCategory !== this.props.selectedCategory) {
+      const selectedPosts = this.props.posts.filter(
+        post => post.category === this.props.selectedCategory
+      );
+      this.props.setSelectedPosts(selectedPosts);
+    }
+  }
+
   render() {
-    const { posts } = this.props;
-    console.log(posts);
+    const { selectedPosts } = this.props;
     return (
       <Item.Group>
-        {posts.map(post => (
+        {selectedPosts.map(post => (
           <Item key={post.id}>
             <Item.Content>
               <Item.Header>{post.title}</Item.Header>
               <Item.Description>{post.body}</Item.Description>
               <Item.Meta>
-                <PostDetails author={post.author} time={post.timestamp} />
-                <ActionOptions />
+                <PostDetails author={post.author} timestamp={post.timestamp} />
+                <ActionOptions voteScore={post.voteScore} />
               </Item.Meta>
             </Item.Content>
           </Item>
