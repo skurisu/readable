@@ -1,6 +1,6 @@
-import { SET_ALLPOSTS, SET_SELECTEDPOSTS } from './actions';
+import { SET_ALLPOSTS, SET_SELECTEDPOSTS, SET_POST } from './actions';
 
-const initialState = { posts: [], selectedPosts: [] };
+const initialState = { posts: [], selectedPosts: [], singlePost: false };
 
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -13,6 +13,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         selectedPosts: action.data
+      };
+    case SET_POST:
+      return {
+        ...state,
+        singlePost: action.data
       };
     default:
       return state;

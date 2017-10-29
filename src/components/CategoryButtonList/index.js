@@ -8,7 +8,6 @@ function mapDispatchToProps(dispatch) {
       dispatch(setCategories(data));
     },
     selectCategory: data => {
-      console.log(data);
       dispatch(selectCategory(data));
     }
   };

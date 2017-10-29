@@ -1,24 +1,13 @@
 import { connect } from 'react-redux';
-import { setPosts, setSelectedPosts } from './actions';
+import { setPost } from './actions';
 import PostItem from './component';
 
 function mapDispatchToProps(dispatch) {
   return {
-    setPosts: data => {
-      dispatch(setPosts(data));
-    },
-    setSelectedPosts: data => {
-      dispatch(setSelectedPosts(data));
+    setPost: data => {
+      dispatch(setPost(data));
     }
   };
 }
 
-function mapStateToProps(state) {
-  return {
-    posts: state.allPosts.posts,
-    selectedPosts: state.allPosts.selectedPosts,
-    selectedCategory: state.categoryButtons.selectedCategory
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(PostItem);
+export default connect(null, mapDispatchToProps)(PostItem);

@@ -1,43 +1,27 @@
 import React, { Component } from 'react';
 import { Item } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import PostDetails from '../PostDetails/index';
 import ActionOptions from '../ActionOptions/index';
-import api from './api';
 
 class PostItem extends Component {
-  componentWillMount() {
-    api().then(data => {
-      this.props.setPosts(data);
-      this.props.setSelectedPosts(data);
-    });
-  }
-
-  componentDidUpdate(previousProps) {
-    if (previousProps.selectedCategory !== this.props.selectedCategory) {
-      const selectedPosts = this.props.posts.filter(
-        post => post.category === this.props.selectedCategory
-      );
-      this.props.setSelectedPosts(selectedPosts);
-    }
-  }
-
   render() {
-    const { selectedPosts } = this.props;
+    const { post } = this.props;
     return (
-      <Item.Group>
-        {selectedPosts.map(post => (
-          <Item key={post.id}>
-            <Item.Content>
-              <Item.Header>{post.title}</Item.Header>
-              <Item.Description>{post.body}</Item.Description>
-              <Item.Meta>
-                <PostDetails author={post.author} timestamp={post.timestamp} />
-                <ActionOptions voteScore={post.voteScore} />
-              </Item.Meta>
-            </Item.Content>
-          </Item>
-        ))}
-      </Item.Group>
+      <Item>
+        <Item.Content>
+          <Link to="/single-post">
+            <Item.Header onClick={() => this.props.setPost(post)}>
+              {post.title}
+            </Item.Header>
+          </Link>
+          <Item.Description>{post.body}</Item.Description>
+          <Item.Meta>
+            <PostDetails author={post.author} timestamp={post.timestamp} />
+            <ActionOptions voteScore={post.voteScore} />
+          </Item.Meta>
+        </Item.Content>
+      </Item>
     );
   }
 }

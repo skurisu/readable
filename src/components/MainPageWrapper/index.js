@@ -4,7 +4,7 @@ import CategoryHeading from '../CategoryHeading/index';
 import CategoryButtonList from '../CategoryButtonList';
 import SortOptions from '../SortOptions/index';
 import PostsHeading from '../PostsHeading/index';
-import PostItem from '../PostItem/index';
+import PostItems from '../PostItems/index';
 import AddPostButton from '../AddPostButton/index';
 
 class MainPageWrapper extends Component {
@@ -21,7 +21,7 @@ class MainPageWrapper extends Component {
               <SortOptions />
               <Item.Group>
                 <PostsHeading />
-                <PostItem />
+                <PostItems />
               </Item.Group>
             </Grid.Column>
           </Grid.Row>

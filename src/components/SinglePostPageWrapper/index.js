@@ -1,24 +1,10 @@
-import React from 'react';
-import { Comment, Container, Header, Item } from 'semantic-ui-react';
-import CommentsList from '../CommentsList/index';
-import PostItem from '../PostItem';
+import { connect } from 'react-redux';
+import SinglePostPageWrapper from './component';
 
-const SinglePostPageWrapper = () => {
-  return (
-    <div>
-      <Container text>
-        <Item.Group>
-          <PostItem />
-        </Item.Group>
-        <Header as="h3" dividing>
-          Comments
-        </Header>
-        <Comment.Group>
-          <CommentsList />
-        </Comment.Group>
-      </Container>
-    </div>
-  );
-};
+function mapStateToProps(state) {
+  return {
+    singlePost: state.allPosts.singlePost
+  };
+}
 
-export default SinglePostPageWrapper;
+export default connect(mapStateToProps)(SinglePostPageWrapper);
