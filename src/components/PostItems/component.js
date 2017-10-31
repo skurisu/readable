@@ -22,6 +22,7 @@ class PostItems extends Component {
 
   render() {
     const { selectedPosts } = this.props;
+
     return (
       <Item.Group>
         {selectedPosts.map(post => <PostItem key={post.id} post={post} />)}

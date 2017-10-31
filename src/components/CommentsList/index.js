@@ -6,7 +6,7 @@ const CommentsList = () => {
   return (
     <Comment>
       <Comment.Content>
-        <Comment.Author as="a">Matt</Comment.Author>
+        <Comment.Author style={{ display: 'inline' }}>Matt</Comment.Author>
         <Comment.Metadata>
           <div>Today at 5:42PM</div>
         </Comment.Metadata>

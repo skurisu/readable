@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { setPosts, setSelectedPosts, setPost } from './actions';
+import { setPosts, setSelectedPosts } from './actions';
+import { setPost } from '../PostItem/actions';
 import PostItems from './component';
 
 function mapDispatchToProps(dispatch) {

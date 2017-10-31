@@ -1,4 +1,5 @@
-import { SET_ALLPOSTS, SET_SELECTEDPOSTS, SET_POST } from './actions';
+import { SET_ALLPOSTS, SET_SELECTEDPOSTS } from './actions';
+import { SET_POST } from '../PostItem/actions';
 
 const initialState = { posts: [], selectedPosts: [], singlePost: false };
 
