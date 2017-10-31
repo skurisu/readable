@@ -1,10 +1,26 @@
 import React, { Component } from 'react';
 import { Comment, Container, Header, Item } from 'semantic-ui-react';
-import CommentsList from '../CommentsList/index';
+import SingleComment from '../Comment/index';
 import PostItem from '../PostItem';
 
 class SinglePostPageWrapper extends Component {
+  componentWillMount() {
+    const { id } = this.props.singlePost;
+    const URL = `/posts/${id}/comments`;
+
+    fetch(URL, {
+      headers: { Authorization: 'toni' }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.props.setComments(data);
+      });
+  }
+
   render() {
+    const { comments } = this.props;
     return (
       <div>
         <Container text>
@@ -15,7 +31,9 @@ class SinglePostPageWrapper extends Component {
             Comments
           </Header>
           <Comment.Group>
-            <CommentsList />
+            {comments.map(comment => (
+              <SingleComment comment={comment} key={comment.id} />
+            ))}
           </Comment.Group>
         </Container>
       </div>
