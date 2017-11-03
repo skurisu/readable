@@ -11,7 +11,7 @@ export default class CategoryButtonList extends Component {
   }
 
   render() {
-    const categories = this.props.categories;
+    const { categories } = this.props;
     return (
       <div>
         {categories.map(category => (

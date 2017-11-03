@@ -7,8 +7,6 @@ export default function() {
     })
     .then(data => {
       const categories = data.categories;
-      // QUESTION: sort data here or in component.js?
-      categories.sort((a, b) => a.voteScore - b.voteScore);
       return categories;
     });
 }
