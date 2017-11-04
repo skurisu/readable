@@ -13,7 +13,7 @@ class AddPostForm extends Component {
   state = {
     title: '',
     body: '',
-    category: '',
+    category: 'redux',
     shouldRedirect: false
   };
 
@@ -89,6 +89,7 @@ class AddPostForm extends Component {
             label="Select a category"
             onChange={this.handleCategoryChange}
             control="select"
+            value={this.state.category}
             required
           >
             {categories.map(category => (
