@@ -35,6 +35,7 @@ class PostItem extends Component {
           {this.state.showEditForm && (
             <EditForm
               toggleEditForm={this.toggleEditForm}
+              id={post.id}
               title={post.title}
               body={post.body}
             />
