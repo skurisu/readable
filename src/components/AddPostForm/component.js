@@ -11,7 +11,6 @@ class AddPostForm extends Component {
   };
 
   createPost(postDetails) {
-    console.log(postDetails);
     fetch('/posts', {
       method: 'POST',
       headers: {
