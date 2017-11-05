@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { Container, Form, Header, Button, Icon } from 'semantic-ui-react';
 
-/*
-  NOTE:
-  - All form items have an onChange handler to keep track of current state of each form item
-  - After submit post is clicked, object is created with the data I'd like to post
-  - Object isn't posting in createPost method's fetch
-*/
-
 class AddPostForm extends Component {
   state = {
     title: '',

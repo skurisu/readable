@@ -14,7 +14,13 @@ class ActionOptions extends Component {
           <strong>2</strong>
           <Icon name="comment" />
         </span>
-        <Icon link name="edit" />
+        <Icon
+          link
+          name="edit"
+          onClick={() => {
+            this.props.toggleEditForm(true);
+          }}
+        />
         <Icon link color="red" name="delete" />
       </div>
     );

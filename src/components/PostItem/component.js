@@ -3,8 +3,17 @@ import { Item } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PostDetails from '../PostDetails/index';
 import ActionOptions from '../ActionOptions/index';
+import EditForm from '../EditForm/component';
 
 class PostItem extends Component {
+  state = {
+    showEditForm: false
+  };
+
+  toggleEditForm = bool => {
+    this.setState({ showEditForm: bool });
+  };
+
   render() {
     const { post } = this.props;
     return (
@@ -18,8 +27,18 @@ class PostItem extends Component {
           <Item.Description>{post.body}</Item.Description>
           <Item.Meta>
             <PostDetails author={post.author} timestamp={post.timestamp} />
-            <ActionOptions voteScore={post.voteScore} />
+            <ActionOptions
+              voteScore={post.voteScore}
+              toggleEditForm={this.toggleEditForm}
+            />
           </Item.Meta>
+          {this.state.showEditForm && (
+            <EditForm
+              toggleEditForm={this.toggleEditForm}
+              title={post.title}
+              body={post.body}
+            />
+          )}
         </Item.Content>
       </Item>
     );
