@@ -3,7 +3,7 @@ import { Item } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import PostDetails from '../PostDetails/index';
 import ActionOptions from '../ActionOptions/index';
-import EditForm from '../EditForm/component';
+import EditForm from '../EditForm/index';
 
 class PostItem extends Component {
   state = {

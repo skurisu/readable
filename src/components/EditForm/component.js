@@ -25,6 +25,35 @@ class EditForm extends Component {
     }
   }
 
+  updatePost(updatedPost) {
+    const id = this.props.id;
+    const URL = `/posts/${id}`;
+    fetch(URL, {
+      method: 'PUT',
+      headers: {
+        Authorization: 'toni',
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updatedPost)
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        this.props.setRefreshPosts(true);
+        this.props.toggleEditForm(false);
+      });
+  }
+
+  submitPost = () => {
+    this.updatePost({
+      title: this.state.title,
+      body: this.state.body
+    });
+  };
+
   handleTitleChange = e => {
     const title = e.target.value;
     this.setState({ title });
@@ -60,7 +89,7 @@ class EditForm extends Component {
           >
             Cancel
           </Button>
-          <Button size="tiny" color="olive">
+          <Button size="tiny" color="olive" onClick={this.submitPost}>
             Submit
           </Button>
         </div>

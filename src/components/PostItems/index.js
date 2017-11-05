@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setPosts, setSelectedPosts } from './actions';
+import { setPosts, setSelectedPosts, setRefreshPosts } from './actions';
 import { setPost } from '../PostItem/actions';
 import PostItems from './component';
 
@@ -13,6 +13,9 @@ function mapDispatchToProps(dispatch) {
     },
     setPost: data => {
       dispatch(setPost(data));
+    },
+    setRefreshPosts: data => {
+      dispatch(setRefreshPosts(data));
     }
   };
 }
@@ -22,7 +25,8 @@ function mapStateToProps(state) {
     posts: state.allPosts.posts,
     selectedPosts: state.allPosts.selectedPosts,
     singlePost: state.allPosts.singlePost,
-    selectedCategory: state.categoryButtons.selectedCategory
+    selectedCategory: state.categoryButtons.selectedCategory,
+    refreshedPosts: state.allPosts.refreshedPosts
   };
 }
 

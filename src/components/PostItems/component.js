@@ -5,7 +5,12 @@ import api from './api';
 
 class PostItems extends Component {
   componentWillMount() {
+    this.getData();
+  }
+
+  getData() {
     api().then(data => {
+      this.props.setRefreshPosts(false);
       this.props.setPosts(data);
       this.props.setSelectedPosts(data);
     });
@@ -17,6 +22,9 @@ class PostItems extends Component {
         post => post.category === this.props.selectedCategory
       );
       this.props.setSelectedPosts(selectedPosts);
+    }
+    if (previousProps.refreshedPosts === false && this.props.refreshedPosts) {
+      this.getData();
     }
   }
 
