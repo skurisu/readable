@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router';
 import { Container, Form, Header, Button, Icon } from 'semantic-ui-react';
+import { createId } from '../../utlis/helpers';
 
 class AddPostForm extends Component {
   state = {
@@ -30,7 +31,7 @@ class AddPostForm extends Component {
 
   submitPost = () => {
     this.createPost({
-      id: 'something',
+      id: createId(),
       author: 'anonymous',
       timestamp: Date.now(),
       title: this.state.title,

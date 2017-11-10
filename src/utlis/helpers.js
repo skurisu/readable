@@ -14,3 +14,8 @@ export function convertTime(time) {
 
   return d;
 }
+
+export function createId() {
+  const id = Math.random() * 10 ** 17;
+  return id;
+}
