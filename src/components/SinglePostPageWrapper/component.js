@@ -102,7 +102,11 @@ class SinglePostPageWrapper extends Component {
           </Header>
           <Comment.Group>
             {comments.map(comment => (
-              <SingleComment comment={comment} key={comment.id} />
+              <SingleComment
+                comment={comment}
+                key={comment.id}
+                forceUpdate={this.forceUpdateComponent}
+              />
             ))}
           </Comment.Group>
         </Container>

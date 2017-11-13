@@ -30,6 +30,7 @@ class PostItem extends Component {
             <ActionOptions
               voteScore={post.voteScore}
               toggleEditForm={this.toggleEditForm}
+              id={post.id}
             />
           </Item.Meta>
           {this.state.showEditForm && (

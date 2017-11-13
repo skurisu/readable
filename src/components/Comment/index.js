@@ -10,7 +10,6 @@ class SingleComment extends Component {
   };
 
   toggleEditComment = bool => {
-    console.log('here');
     this.setState({ showEditComment: bool });
   };
 
@@ -33,7 +32,14 @@ class SingleComment extends Component {
             />
           </Comment.Actions>
         </Comment.Content>
-        {this.state.showEditComment && <EditCommentForm />}
+        {this.state.showEditComment && (
+          <EditCommentForm
+            toggleEditForm={this.toggleEditComment}
+            body={comment.body}
+            id={comment.id}
+            forceUpdate={this.props.forceUpdate}
+          />
+        )}
       </Comment>
     );
   }
