@@ -12,7 +12,7 @@ class EditCommentForm extends Component {
 
   updateComment(updatedComment) {
     const id = this.props.id;
-    console.log(id);
+
     const URL = `/comments/${id}`;
     fetch(URL, {
       method: 'PUT',
