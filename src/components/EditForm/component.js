@@ -41,7 +41,6 @@ class EditForm extends Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         this.props.setRefreshPosts(true);
         this.props.toggleEditForm(false);
       });
