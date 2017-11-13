@@ -36,9 +36,7 @@ class AddPostForm extends Component {
       timestamp: Date.now(),
       title: this.state.title,
       body: this.state.body,
-      category: this.state.category,
-      voteScore: 0,
-      deleted: false
+      category: this.state.category
     });
   };
 

@@ -6,6 +6,9 @@
     },
     "/posts": {
       "target": "http://localhost:3001"
+    },
+    "/comments": {
+      "target": "http://localhost:3001"
     }
   },
   "name": "readable-app",
