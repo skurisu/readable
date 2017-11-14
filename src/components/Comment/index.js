@@ -27,6 +27,8 @@ class SingleComment extends Component {
           <Comment.Text>{comment.body}</Comment.Text>
           <Comment.Actions>
             <ActionOptions
+              onVote={() => () => 1}
+              onDelete={() => () => 1}
               voteScore={comment.voteScore}
               toggleEditForm={this.toggleEditComment}
             />

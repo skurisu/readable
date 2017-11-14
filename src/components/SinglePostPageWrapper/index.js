@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
 import { setComments } from './actions';
+import { setPost } from '../PostItem/actions';
 import SinglePostPageWrapper from './component';
 
 function mapDispatchToProps(dispatch) {
   return {
     setComments: data => {
       dispatch(setComments(data));
+    },
+    setPost: data => {
+      dispatch(setPost(data));
     }
   };
 }

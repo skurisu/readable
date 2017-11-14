@@ -33,7 +33,13 @@ class PostItems extends Component {
 
     return (
       <Item.Group>
-        {selectedPosts.map(post => <PostItem key={post.id} post={post} />)}
+        {selectedPosts.map(post => (
+          <PostItem
+            key={post.id}
+            post={post}
+            setRefreshPosts={this.props.setRefreshPosts}
+          />
+        ))}
       </Item.Group>
     );
   }

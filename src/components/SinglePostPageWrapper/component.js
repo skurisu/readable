@@ -33,6 +33,18 @@ class SinglePostPageWrapper extends Component {
       .then(data => {
         this.props.setComments(data);
       });
+
+    const POSTS_URL = `/posts/${id}`;
+
+    fetch(POSTS_URL, {
+      headers: { Authorization: 'toni' }
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        this.props.setPost(data);
+      });
   }
 
   createComment(commentDetails) {
@@ -78,7 +90,10 @@ class SinglePostPageWrapper extends Component {
       <div>
         <Container text>
           <Item.Group>
-            <PostItem post={this.props.singlePost} />
+            <PostItem
+              post={this.props.singlePost}
+              setRefreshPosts={this.forceUpdateComponent.bind(this)}
+            />
           </Item.Group>
           <Header as="h3" dividing>
             Add a comment!
