@@ -13,6 +13,30 @@ class SingleComment extends Component {
     this.setState({ showEditComment: bool });
   };
 
+  vote(voteOption) {
+    const id = this.props.comment.id;
+    const URL = `/comments/${id}`;
+    fetch(URL, {
+      method: 'POST',
+      headers: {
+        Authorization: 'toni',
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(voteOption)
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(data => {
+        this.props.forceUpdate();
+      });
+  }
+
+  createVote = option => () => {
+    this.vote({ option: option });
+  };
+
   render() {
     const { comment } = this.props;
     return (
@@ -27,7 +51,7 @@ class SingleComment extends Component {
           <Comment.Text>{comment.body}</Comment.Text>
           <Comment.Actions>
             <ActionOptions
-              onVote={() => () => 1}
+              onVote={this.createVote}
               onDelete={() => () => 1}
               voteScore={comment.voteScore}
               toggleEditForm={this.toggleEditComment}

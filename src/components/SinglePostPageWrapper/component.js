@@ -120,7 +120,7 @@ class SinglePostPageWrapper extends Component {
               <SingleComment
                 comment={comment}
                 key={comment.id}
-                forceUpdate={this.forceUpdateComponent}
+                forceUpdate={this.forceUpdateComponent.bind(this)}
               />
             ))}
           </Comment.Group>
