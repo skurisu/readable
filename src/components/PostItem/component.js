@@ -79,7 +79,6 @@ class PostItem extends Component {
             <PostDetails author={post.author} timestamp={post.timestamp} />
             <ActionOptions
               onVote={this.createVote}
-              // onEdit={}
               onDelete={this.handleDelete}
               voteScore={post.voteScore}
               toggleEditForm={this.toggleEditForm}
