@@ -37,6 +37,32 @@ class SingleComment extends Component {
     this.vote({ option: option });
   };
 
+  delete(item) {
+    const id = this.props.comment.id;
+    const URL = `/comments/${id}`;
+    fetch(URL, {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'toni',
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(item)
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(data => {
+        this.props.forceUpdate();
+      });
+  }
+
+  handleDelete = () => {
+    this.delete({
+      delete: false
+    });
+  };
+
   render() {
     const { comment } = this.props;
     return (
@@ -52,7 +78,7 @@ class SingleComment extends Component {
           <Comment.Actions>
             <ActionOptions
               onVote={this.createVote}
-              onDelete={() => () => 1}
+              onDelete={this.handleDelete}
               voteScore={comment.voteScore}
               toggleEditForm={this.toggleEditComment}
             />
