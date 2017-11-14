@@ -21,10 +21,12 @@ class ActionOptions extends Component {
           style={{ marginLeft: 3.5 }}
           onClick={this.props.onVote('downVote')}
         />
-        <span style={{ color: '#2185d0', marginRight: 5, marginLeft: 5 }}>
-          <strong>2</strong>
-          <Icon name="comment" />
-        </span>
+        {this.props.commentLength >= 0 && (
+          <span style={{ color: '#2185d0', marginRight: 5, marginLeft: 5 }}>
+            <strong>{this.props.commentLength}</strong>
+            <Icon name="comment" />
+          </span>
+        )}
         <Icon
           link
           name="edit"

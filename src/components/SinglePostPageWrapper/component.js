@@ -13,7 +13,8 @@ import { createId } from '../../utlis/helpers';
 
 class SinglePostPageWrapper extends Component {
   state = {
-    body: ''
+    body: '',
+    commentLength: ''
   };
 
   componentWillMount() {
@@ -31,6 +32,8 @@ class SinglePostPageWrapper extends Component {
         return response.json();
       })
       .then(data => {
+        const commentLength = data.length;
+        this.setState({ commentLength });
         this.props.setComments(data);
       });
 
@@ -92,6 +95,7 @@ class SinglePostPageWrapper extends Component {
           <Item.Group>
             <PostItem
               post={this.props.singlePost}
+              commentLength={this.state.commentLength}
               setRefreshPosts={this.forceUpdateComponent.bind(this)}
             />
           </Item.Group>

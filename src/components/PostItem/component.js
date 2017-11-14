@@ -84,6 +84,7 @@ class PostItem extends Component {
               toggleEditForm={this.toggleEditForm}
               id={post.id}
               setRefreshPosts={this.props.setRefreshPosts}
+              commentLength={this.props.commentLength}
             />
           </Item.Meta>
           {this.state.showEditForm && (
