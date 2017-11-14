@@ -7,6 +7,6 @@ export function convertTime(time) {
 }
 
 export function createId() {
-  const id = Math.random() * 10 ** 17;
+  const id = (Math.random() * 10 ** 17).toString();
   return id;
 }
