@@ -27,8 +27,7 @@ class EditCommentForm extends Component {
         return response.json();
       })
       .then(data => {
-        console.log(data);
-        // this.props.forceUpdate();
+        this.props.forceUpdate();
         this.props.toggleEditForm(false);
       });
   }
