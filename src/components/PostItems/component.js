@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Item } from 'semantic-ui-react';
 import PostItem from '../PostItem/index';
-import api from './api';
+import api, { comment } from './api';
 
 class PostItems extends Component {
   componentWillMount() {
@@ -11,8 +11,20 @@ class PostItems extends Component {
   getData() {
     api().then(data => {
       this.props.setRefreshPosts(false);
-      this.props.setPosts(data);
-      this.props.setSelectedPosts(data);
+
+      const commentPromises = data.map(post => {
+        const id = post.id;
+        return comment(id);
+      });
+      Promise.all(commentPromises).then(commentsArray => {
+        data.map((post, index) => {
+          post.commentsLength = commentsArray[index].length;
+          return post;
+        });
+
+        this.props.setPosts(data);
+        this.props.setSelectedPosts(data);
+      });
     });
   }
 
@@ -37,6 +49,7 @@ class PostItems extends Component {
           <PostItem
             key={post.id}
             post={post}
+            commentLength={post.commentsLength}
             setRefreshPosts={this.props.setRefreshPosts}
           />
         ))}
