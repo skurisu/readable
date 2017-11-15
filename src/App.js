@@ -10,6 +10,7 @@ class App extends Component {
     return (
       <div>
         <Route exact path="/" render={() => <MainPageWrapper />} />
+        <Route exact path="/:category" render={() => <MainPageWrapper />} />
         <Route exact path="/add/post" render={() => <AddPostForm />} />
         <Route
           exact
