@@ -21,7 +21,7 @@ class SinglePostPageWrapper extends Component {
     this.forceUpdateComponent();
   }
 
-  forceUpdateComponent() {
+  forceUpdateComponent = () => {
     const { id } = this.props.singlePost;
     const URL = `/posts/${id}/comments`;
 
@@ -49,7 +49,7 @@ class SinglePostPageWrapper extends Component {
       .then(data => {
         this.props.setPost(data);
       });
-  }
+  };
 
   createComment(commentDetails) {
     fetch('/comments', {
@@ -97,7 +97,7 @@ class SinglePostPageWrapper extends Component {
             <PostItem
               post={this.props.singlePost}
               commentLength={this.state.commentLength}
-              setRefreshPosts={this.forceUpdateComponent.bind(this)}
+              setRefreshPosts={this.forceUpdateComponent}
             />
           </Item.Group>
           <Header as="h3" dividing>
@@ -125,7 +125,7 @@ class SinglePostPageWrapper extends Component {
               <SingleComment
                 comment={comment}
                 key={comment.id}
-                forceUpdate={this.forceUpdateComponent.bind(this)}
+                forceUpdate={this.forceUpdateComponent}
               />
             ))}
           </Comment.Group>
