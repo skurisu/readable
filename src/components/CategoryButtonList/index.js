@@ -21,5 +21,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryButtonList);
-
-// <CategoryButtonList /> // connected to redux
