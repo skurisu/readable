@@ -35,6 +35,7 @@ class SinglePostPageWrapper extends Component {
         const commentLength = data.length;
         this.setState({ commentLength });
         this.props.setComments(data);
+        data.sort((a, b) => b.voteScore - a.voteScore);
       });
 
     const POSTS_URL = `/posts/${id}`;
