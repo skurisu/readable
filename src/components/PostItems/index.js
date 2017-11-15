@@ -26,7 +26,8 @@ function mapStateToProps(state) {
     selectedPosts: state.allPosts.selectedPosts,
     singlePost: state.allPosts.singlePost,
     selectedCategory: state.categoryButtons.selectedCategory,
-    refreshedPosts: state.allPosts.refreshedPosts
+    refreshedPosts: state.allPosts.refreshedPosts,
+    sortType: state.sortBy.name
   };
 }
 

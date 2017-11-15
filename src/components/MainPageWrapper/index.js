@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Grid, Item } from 'semantic-ui-react';
-import CategoryHeading from '../CategoryHeading/index';
+import CategoryHeading from '../CategoryHeading';
 import CategoryButtonList from '../CategoryButtonList';
-import SortOptions from '../SortOptions/index';
-import PostsHeading from '../PostsHeading/index';
-import PostItems from '../PostItems/index';
-import AddPostButton from '../AddPostButton/index';
+import SortOptions from '../SortOptions';
+import PostsHeading from '../PostsHeading';
+import PostItems from '../PostItems';
+import AddPostButton from '../AddPostButton';
 
 class MainPageWrapper extends Component {
   render() {

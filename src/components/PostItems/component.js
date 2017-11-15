@@ -40,9 +40,25 @@ class PostItems extends Component {
     }
   }
 
+  sortPosts = () => {
+    const { sortType, selectedPosts } = this.props;
+    if (sortType === 'ascendingVotes') {
+      selectedPosts.sort((a, b) => a.voteScore - b.voteScore);
+    }
+    if (sortType === 'descendingVotes') {
+      selectedPosts.sort((a, b) => b.voteScore - a.voteScore);
+    }
+    if (sortType === 'descendingTime') {
+      selectedPosts.sort((a, b) => b.timestamp - a.timestamp);
+    }
+    if (sortType === 'ascendingTime') {
+      selectedPosts.sort((a, b) => a.timestamp - b.timestamp);
+    }
+  };
+
   render() {
     const { selectedPosts } = this.props;
-
+    this.sortPosts();
     return (
       <Item.Group>
         {selectedPosts.map(post => (
