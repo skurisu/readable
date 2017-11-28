@@ -23,17 +23,32 @@ class PostItems extends Component {
         });
 
         this.props.setPosts(data);
-        this.props.setSelectedPosts(data);
+        const selectedPosts = data.filter(
+          post => post.category === this.props.match.params.category
+        );
+
+        if (this.props.match.params.category) {
+          this.props.setSelectedPosts(selectedPosts);
+        } else {
+          this.props.setSelectedPosts(data);
+        }
       });
     });
   }
 
   componentDidUpdate(previousProps) {
-    if (previousProps.selectedCategory !== this.props.selectedCategory) {
+    const currentCategory = this.props.match.params.category;
+    const previousCategory = previousProps.match.params.category;
+
+    if (previousCategory !== currentCategory) {
       const selectedPosts = this.props.posts.filter(
-        post => post.category === this.props.selectedCategory
+        post => post.category === currentCategory
       );
-      this.props.setSelectedPosts(selectedPosts);
+      if (currentCategory) {
+        this.props.setSelectedPosts(selectedPosts);
+      } else {
+        this.props.setSelectedPosts(this.props.posts);
+      }
     }
     if (previousProps.refreshedPosts === false && this.props.refreshedPosts) {
       this.getData();

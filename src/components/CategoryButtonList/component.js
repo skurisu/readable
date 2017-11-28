@@ -17,12 +17,7 @@ export default class CategoryButtonList extends Component {
       <div>
         {categories.map(category => (
           <Link to={`/${category.name}`} key={category.name}>
-            <Button
-              color="teal"
-              onClick={() => this.props.selectCategory(category.name)}
-            >
-              {category.name}
-            </Button>
+            <Button color="teal">{category.name}</Button>
           </Link>
         ))}
       </div>
@@ -34,5 +29,3 @@ CategoryButtonList.PropTypes = {
   categories: PropTypes.array,
   setCategories: PropTypes.func
 };
-
-// <CategoryButtonList categories={[]} setCategories={(x) => {}} /> // unconnect (to redux) component

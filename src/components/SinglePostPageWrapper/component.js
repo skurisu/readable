@@ -22,9 +22,9 @@ class SinglePostPageWrapper extends Component {
   }
 
   forceUpdateComponent = () => {
-    const { id } = this.props.singlePost;
-    const URL = `/posts/${id}/comments`;
+    const id = this.props.match.params.post_id;
 
+    const URL = `/posts/${id}/comments`;
     fetch(URL, {
       headers: { Authorization: 'toni' }
     })

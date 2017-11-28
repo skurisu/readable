@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { setComments } from './actions';
-import { setPost } from '../PostItem/actions';
+import { setComments, setPost } from './actions';
 import SinglePostPageWrapper from './component';
+import { withRouter } from 'react-router';
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -16,11 +16,11 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    singlePost: state.allPosts.singlePost,
-    comments: state.postComments.comments
+    comments: state.postComments.comments,
+    singlePost: state.postComments.singlePost
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  SinglePostPageWrapper
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SinglePostPageWrapper)
 );
