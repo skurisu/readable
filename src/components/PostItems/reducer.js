@@ -1,5 +1,4 @@
 import { SET_ALLPOSTS, SET_SELECTEDPOSTS, SET_REFRESHPOSTS } from './actions';
-import { SET_POST } from '../PostItem/actions';
 
 const initialState = { posts: [], selectedPosts: [], singlePost: false };
 
@@ -14,11 +13,6 @@ export default function(state = initialState, action) {
       return {
         ...state,
         selectedPosts: action.data
-      };
-    case SET_POST:
-      return {
-        ...state,
-        singlePost: action.data
       };
     case SET_REFRESHPOSTS:
       return {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import api from './api';
 import PropTypes from 'prop-types';
 
@@ -15,13 +16,9 @@ export default class CategoryButtonList extends Component {
     return (
       <div>
         {categories.map(category => (
-          <Button
-            color="teal"
-            key={category.name}
-            onClick={() => this.props.selectCategory(category.name)}
-          >
-            {category.name}
-          </Button>
+          <Link to={`/${category.name}`} key={category.name}>
+            <Button color="teal">{category.name}</Button>
+          </Link>
         ))}
       </div>
     );
@@ -32,5 +29,3 @@ CategoryButtonList.PropTypes = {
   categories: PropTypes.array,
   setCategories: PropTypes.func
 };
-
-// <CategoryButtonList categories={[]} setCategories={(x) => {}} /> // unconnect (to redux) component
