@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import api from './api';
 import PropTypes from 'prop-types';
 
 export default class CategoryButtonList extends Component {
   componentWillMount() {
-    api().then(data => {
-      this.props.setCategories(data);
-    });
+    this.props.getCategories();
   }
 
   render() {

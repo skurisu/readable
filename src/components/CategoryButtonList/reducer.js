@@ -1,6 +1,6 @@
 import { SET_CATEGORIES } from './actions';
 
-const initialState = { categories: [], selectedCategory: false };
+const initialState = { categories: [] };
 
 export default function(state = initialState, action) {
   switch (action.type) {
