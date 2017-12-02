@@ -16,7 +16,7 @@ class SinglePostPageWrapper extends Component {
     body: ''
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.forceUpdateComponent();
   }
 

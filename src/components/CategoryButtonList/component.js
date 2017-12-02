@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default class CategoryButtonList extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getCategories();
   }
 

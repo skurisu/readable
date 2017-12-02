@@ -3,7 +3,7 @@ import { Item } from 'semantic-ui-react';
 import PostItem from '../PostItem/index';
 
 class PostItems extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getData(this.props.match.params.category);
   }
 
