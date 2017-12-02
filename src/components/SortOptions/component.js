@@ -10,7 +10,7 @@ class SortOptions extends Component {
         </span>
         <Button
           color="yellow"
-          content="Most Up Votes"
+          content="Most Votes"
           icon="thumbs outline up"
           labelPosition="left"
           size="tiny"
@@ -18,7 +18,7 @@ class SortOptions extends Component {
         />
         <Button
           color="yellow"
-          content="Most Down Votes"
+          content="Least Votes"
           icon="thumbs outline down"
           labelPosition="left"
           size="tiny"
