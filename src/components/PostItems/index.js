@@ -1,5 +1,10 @@
 import { connect } from 'react-redux';
-import { setPosts, setSelectedPosts, setRefreshPosts } from './actions';
+import {
+  setPosts,
+  setSelectedPosts,
+  setRefreshPosts,
+  getData
+} from './actions';
 import PostItems from './component';
 import { withRouter } from 'react-router';
 
@@ -13,6 +18,9 @@ function mapDispatchToProps(dispatch) {
     },
     setRefreshPosts: data => {
       dispatch(setRefreshPosts(data));
+    },
+    getData: categoryParam => {
+      dispatch(getData(categoryParam));
     }
   };
 }

@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
-import { setCategories } from './actions';
+import { setCategories, getCategories } from './actions';
+
 import CategoryButtonList from './component';
 
 function mapDispatchToProps(dispatch) {
   return {
     setCategories: data => {
       dispatch(setCategories(data));
+    },
+    getCategories: () => {
+      dispatch(getCategories());
     }
   };
 }

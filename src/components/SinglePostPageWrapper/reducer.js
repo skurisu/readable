@@ -1,7 +1,6 @@
-import { SET_COMMENTS } from './actions';
-import { SET_POST } from './actions';
+import { SET_COMMENTS, SET_POST, SET_COMMENTLENGTH } from './actions';
 
-const initialState = { comments: [], singlePost: false };
+const initialState = { comments: [], singlePost: false, commentLength: null };
 
 export default function(state = initialState, action) {
   switch (action.type) {
@@ -14,6 +13,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         singlePost: action.data
+      };
+    case SET_COMMENTLENGTH:
+      return {
+        ...state,
+        commentLength: action.data
       };
     default:
       return state;
