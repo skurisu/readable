@@ -7,30 +7,11 @@ class AddPostForm extends Component {
   state = {
     title: '',
     body: '',
-    category: 'redux',
-    shouldRedirect: false
+    category: 'redux'
   };
 
-  createPost(postDetails) {
-    fetch('/posts', {
-      method: 'POST',
-      headers: {
-        Authorization: 'toni',
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postDetails)
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(data => {
-        this.setState({ shouldRedirect: true });
-      });
-  }
-
   submitPost = () => {
-    this.createPost({
+    this.props.createPost({
       id: createId(),
       author: 'anonymous',
       timestamp: Date.now(),
@@ -55,7 +36,7 @@ class AddPostForm extends Component {
   render() {
     const { categories } = this.props;
 
-    if (this.state.shouldRedirect) {
+    if (this.props.shouldRedirect) {
       return <Redirect to="/" />;
     }
 
