@@ -4,12 +4,7 @@ import PostItem from '../PostItem/index';
 
 class PostItems extends Component {
   componentWillMount() {
-    this.props.getData(
-      this.props.setRefreshPosts,
-      this.props.setPosts,
-      this.props.match.params.category,
-      this.props.setSelectedPosts
-    );
+    this.props.getData(this.props.match.params.category);
   }
 
   componentDidUpdate(previousProps) {
@@ -27,12 +22,7 @@ class PostItems extends Component {
       }
     }
     if (previousProps.refreshedPosts === false && this.props.refreshedPosts) {
-      this.props.getData(
-        this.props.setRefreshPosts,
-        this.props.setPosts,
-        this.props.match.params.category,
-        this.props.setSelectedPosts
-      );
+      this.props.getData(this.props.match.params.category);
     }
   }
 

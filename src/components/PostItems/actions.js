@@ -16,15 +16,10 @@ export function setRefreshPosts(data) {
   return { type: SET_REFRESHPOSTS, data };
 }
 
-export function getData(
-  setRefreshPosts,
-  setPosts,
-  categoryParam,
-  setSelectedPosts
-) {
-  return () => {
+export function getData(categoryParam) {
+  return dispatch => {
     api().then(data => {
-      setRefreshPosts(false);
+      dispatch(setRefreshPosts(false));
 
       const commentPromises = data.map(post => {
         const id = post.id;
@@ -36,15 +31,15 @@ export function getData(
           return post;
         });
 
-        setPosts(data);
+        dispatch(setPosts(data));
         const selectedPosts = data.filter(
           post => post.category === categoryParam
         );
 
         if (categoryParam) {
-          setSelectedPosts(selectedPosts);
+          dispatch(setSelectedPosts(selectedPosts));
         } else {
-          setSelectedPosts(data);
+          dispatch(setSelectedPosts(data));
         }
       });
     });

@@ -19,10 +19,8 @@ function mapDispatchToProps(dispatch) {
     setRefreshPosts: data => {
       dispatch(setRefreshPosts(data));
     },
-    getData: (setRefreshPosts, setPosts, categoryParam, setSelectedPosts) => {
-      dispatch(
-        getData(setRefreshPosts, setPosts, categoryParam, setSelectedPosts)
-      );
+    getData: categoryParam => {
+      dispatch(getData(categoryParam));
     }
   };
 }
