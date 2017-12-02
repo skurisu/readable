@@ -13,54 +13,22 @@ class SingleComment extends Component {
     this.setState({ showEditComment: bool });
   };
 
-  vote(voteOption) {
-    const id = this.props.comment.id;
-    const URL = `/comments/${id}`;
-    fetch(URL, {
-      method: 'POST',
-      headers: {
-        Authorization: 'toni',
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(voteOption)
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(data => {
-        this.props.forceUpdate();
-      });
-  }
-
   createVote = option => () => {
-    this.vote({ option: option });
+    this.props.voteComment(
+      { option: option },
+      this.props.comment.id,
+      this.props.forceUpdate
+    );
   };
 
-  delete(item) {
-    const id = this.props.comment.id;
-    const URL = `/comments/${id}`;
-    fetch(URL, {
-      method: 'DELETE',
-      headers: {
-        Authorization: 'toni',
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(item)
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(data => {
-        this.props.forceUpdate();
-      });
-  }
-
   handleDelete = () => {
-    this.delete({
-      delete: false
-    });
+    this.props.deleteComment(
+      {
+        delete: false
+      },
+      this.props.comment.id,
+      this.props.forceUpdate
+    );
   };
 
   render() {
