@@ -1,39 +1,10 @@
 import React, { Component } from 'react';
 import { Item } from 'semantic-ui-react';
 import PostItem from '../PostItem/index';
-import api, { comment } from './api';
 
 class PostItems extends Component {
   componentWillMount() {
-    this.getData();
-  }
-
-  getData() {
-    api().then(data => {
-      this.props.setRefreshPosts(false);
-
-      const commentPromises = data.map(post => {
-        const id = post.id;
-        return comment(id);
-      });
-      Promise.all(commentPromises).then(commentsArray => {
-        data.map((post, index) => {
-          post.commentsLength = commentsArray[index].length;
-          return post;
-        });
-
-        this.props.setPosts(data);
-        const selectedPosts = data.filter(
-          post => post.category === this.props.match.params.category
-        );
-
-        if (this.props.match.params.category) {
-          this.props.setSelectedPosts(selectedPosts);
-        } else {
-          this.props.setSelectedPosts(data);
-        }
-      });
-    });
+    this.props.getData(this.props.match.params.category);
   }
 
   componentDidUpdate(previousProps) {
@@ -51,7 +22,7 @@ class PostItems extends Component {
       }
     }
     if (previousProps.refreshedPosts === false && this.props.refreshedPosts) {
-      this.getData();
+      this.props.getData(this.props.match.params.category);
     }
   }
 

@@ -25,32 +25,16 @@ class EditForm extends Component {
     }
   }
 
-  updatePost(updatedPost) {
-    const id = this.props.id;
-    const URL = `/posts/${id}`;
-    fetch(URL, {
-      method: 'PUT',
-      headers: {
-        Authorization: 'toni',
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(updatedPost)
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(data => {
-        this.props.setRefreshPosts(true);
-        this.props.toggleEditForm(false);
-      });
-  }
-
   submitPost = () => {
-    this.updatePost({
-      title: this.state.title,
-      body: this.state.body
-    });
+    this.props.updatePost(
+      {
+        title: this.state.title,
+        body: this.state.body
+      },
+      this.props.id,
+      this.props.setRefreshPosts,
+      this.props.toggleEditForm
+    );
   };
 
   handleTitleChange = e => {
