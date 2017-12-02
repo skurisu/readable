@@ -4,8 +4,8 @@ import { updateComment } from './actions';
 
 function mapDispatchToProps(dispatch) {
   return {
-    updateComment: (voteOption, id, forceUpdate, toggleForm) => {
-      dispatch(updateComment(voteOption, id, forceUpdate, toggleForm));
+    updateComment: (updatedComment, id, forceUpdate, toggleEditForm) => {
+      dispatch(updateComment(updatedComment, id, forceUpdate, toggleEditForm));
     }
   };
 }
