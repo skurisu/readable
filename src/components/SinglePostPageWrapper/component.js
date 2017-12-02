@@ -51,7 +51,7 @@ class SinglePostPageWrapper extends Component {
 
   render() {
     const { comments } = this.props;
-
+    if (!this.props.singlePost) return null;
     return (
       <div>
         <Container text>

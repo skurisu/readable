@@ -1,3 +1,5 @@
+import { push } from 'react-router-redux';
+
 export const SET_COMMENTS = 'SET_COMMENTS';
 export const SET_POST = 'SET_POST';
 export const SET_COMMENTLENGTH = 'SET_COMMENTLENGTH';
@@ -45,7 +47,12 @@ export function getSinglePost(id) {
         return response.json();
       })
       .then(data => {
-        dispatch(setPost(data));
+        console.log(data);
+        if (data.id) {
+          dispatch(setPost(data));
+        } else {
+          dispatch(push('/'));
+        }
       });
   };
 }
