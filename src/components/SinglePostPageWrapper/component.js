@@ -13,8 +13,7 @@ import { createId } from '../../utlis/helpers';
 
 class SinglePostPageWrapper extends Component {
   state = {
-    body: '',
-    commentLength: ''
+    body: ''
   };
 
   componentWillMount() {
@@ -24,57 +23,20 @@ class SinglePostPageWrapper extends Component {
   forceUpdateComponent = () => {
     const id = this.props.match.params.post_id;
 
-    const URL = `/posts/${id}/comments`;
-    fetch(URL, {
-      headers: { Authorization: 'toni' }
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        const commentLength = data.length;
-        this.setState({ commentLength });
-        this.props.setComments(data);
-        data.sort((a, b) => b.voteScore - a.voteScore);
-      });
-
-    const POSTS_URL = `/posts/${id}`;
-
-    fetch(POSTS_URL, {
-      headers: { Authorization: 'toni' }
-    })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.props.setPost(data);
-      });
+    this.props.getPostComments(id);
+    this.props.getSinglePost(id);
   };
 
-  createComment(commentDetails) {
-    fetch('/comments', {
-      method: 'POST',
-      headers: {
-        Authorization: 'toni',
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(commentDetails)
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(data => {
-        this.forceUpdateComponent();
-      });
+  submitComment(commentDetails) {
+    this.props.createComment(commentDetails, this.forceUpdateComponent);
 
     this.setState({ body: '' });
   }
 
-  submitComment = () => {
+  handleSubmitComment = () => {
     const commentId = createId();
 
-    this.createComment({
+    this.submitComment({
       id: commentId,
       timestamp: Date.now(),
       body: this.state.body,
@@ -96,7 +58,7 @@ class SinglePostPageWrapper extends Component {
           <Item.Group>
             <PostItem
               post={this.props.singlePost}
-              commentLength={this.state.commentLength}
+              commentLength={this.props.commentLength}
               setRefreshPosts={this.forceUpdateComponent}
             />
           </Item.Group>
@@ -112,7 +74,11 @@ class SinglePostPageWrapper extends Component {
             />
           </Form>
           <div style={{ marginTop: 25 }}>
-            <Button size="tiny" color="olive" onClick={this.submitComment}>
+            <Button
+              size="tiny"
+              color="olive"
+              onClick={this.handleSubmitComment}
+            >
               Submit
             </Button>
           </div>
