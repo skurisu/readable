@@ -14,28 +14,12 @@ class PostItem extends Component {
     this.setState({ showEditForm: bool });
   };
 
-  vote(voteOption) {
-    const id = this.props.post.id;
-    const URL = `/posts/${id}`;
-    fetch(URL, {
-      method: 'POST',
-      headers: {
-        Authorization: 'toni',
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(voteOption)
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(data => {
-        this.props.setRefreshPosts(true);
-      });
-  }
-
   createVote = option => () => {
-    this.vote({ option: option });
+    this.props.vote(
+      { option: option },
+      this.props.post.id,
+      this.props.setRefreshPosts
+    );
   };
 
   handleDelete = () => {
