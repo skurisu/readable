@@ -7,7 +7,7 @@ function mapDispatchToProps(dispatch) {
     deletePost: (item, id, setRefresh) => {
       dispatch(deletePost(item, id, setRefresh));
     },
-    vote: (item, id, setRefresh) => {
+    votePost: (item, id, setRefresh) => {
       dispatch(vote(item, id, setRefresh));
     }
   };

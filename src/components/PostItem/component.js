@@ -15,7 +15,7 @@ class PostItem extends Component {
   };
 
   createVote = option => () => {
-    this.props.vote(
+    this.props.votePost(
       { option: option },
       this.props.post.id,
       this.props.setRefreshPosts
