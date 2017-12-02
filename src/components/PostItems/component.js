@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Item } from 'semantic-ui-react';
 import PostItem from '../PostItem/index';
-import api, { comment } from './api';
 
 class PostItems extends Component {
   componentWillMount() {
