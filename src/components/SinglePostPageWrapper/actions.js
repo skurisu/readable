@@ -47,11 +47,10 @@ export function getSinglePost(id) {
         return response.json();
       })
       .then(data => {
-        console.log(data);
         if (data.id) {
           dispatch(setPost(data));
         } else {
-          dispatch(push('/'));
+          dispatch(push('/error'));
         }
       });
   };

@@ -4,6 +4,7 @@ import { Button, Icon } from 'semantic-ui-react';
 import MainPageWrapper from './components/MainPageWrapper/index';
 import AddPostForm from './components/AddPostForm/index';
 import SinglePostPageWrapper from './components/SinglePostPageWrapper';
+import PageNotFound from './components/PageNotFound';
 import './App.css';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
       </Link>
       <Switch>
         <Route exact path="/add/post" render={() => <AddPostForm />} />
+        <Route exact path="/error" render={() => <PageNotFound />} />
         <Route exact path="/" render={() => <MainPageWrapper />} />
         <Route exact path="/:category" render={() => <MainPageWrapper />} />
         <Route
