@@ -10,6 +10,14 @@ class PostItems extends Component {
   componentDidUpdate(previousProps) {
     const currentCategory = this.props.match.params.category;
     const previousCategory = previousProps.match.params.category;
+    // debugger;
+    if (
+      currentCategory &&
+      this.props.categories.indexOf(currentCategory) === -1 &&
+      this.props.categories.length > 0
+    ) {
+      this.props.redirectToError();
+    }
 
     if (previousCategory !== currentCategory) {
       const selectedPosts = this.props.posts.filter(

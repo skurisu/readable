@@ -7,6 +7,7 @@ import {
 } from './actions';
 import PostItems from './component';
 import { withRouter } from 'react-router';
+import { push } from 'react-router-redux';
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -21,6 +22,9 @@ function mapDispatchToProps(dispatch) {
     },
     getData: categoryParam => {
       dispatch(getData(categoryParam));
+    },
+    redirectToError: () => {
+      dispatch(push('/error'));
     }
   };
 }
@@ -30,6 +34,7 @@ function mapStateToProps(state) {
     posts: state.allPosts.posts,
     selectedPosts: state.allPosts.selectedPosts,
     refreshedPosts: state.allPosts.refreshedPosts,
+    categories: state.categoryButtons.categories,
     sortType: state.sortBy.name
   };
 }
