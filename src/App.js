@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
 import { Button, Icon } from 'semantic-ui-react';
 import MainPageWrapper from './components/MainPageWrapper/index';
 import AddPostForm from './components/AddPostForm/index';
