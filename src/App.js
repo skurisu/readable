@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 import { Button, Icon } from 'semantic-ui-react';
 import MainPageWrapper from './components/MainPageWrapper/index';
 import AddPostForm from './components/AddPostForm/index';
@@ -16,15 +16,16 @@ const App = () => {
         </Button>
       </Link>
       <Switch>
-        <Route exact path="/add/post" render={() => <AddPostForm />} />
-        <Route exact path="/error" render={() => <PageNotFound />} />
-        <Route exact path="/" render={() => <MainPageWrapper />} />
-        <Route exact path="/:category" render={() => <MainPageWrapper />} />
+        <Route exact path="/" component={MainPageWrapper} />
+        <Route exact path="/error" component={PageNotFound} />
+        <Route exact path="/add/post" component={AddPostForm} />
+        <Route exact path="/:category" component={MainPageWrapper} />
         <Route
           exact
           path="/:category/:post_id"
-          render={() => <SinglePostPageWrapper />}
+          component={SinglePostPageWrapper}
         />
+        <Route component={PageNotFound} />
       </Switch>
     </div>
   );
