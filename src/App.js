@@ -18,14 +18,14 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={MainPageWrapper} />
         <Route exact path="/error" component={PageNotFound} />
-        <Route exact path="/add/post" component={AddPostForm} />
         <Route exact path="/:category" component={MainPageWrapper} />
+        <Route exact path="/add/post" component={AddPostForm} />
         <Route
           exact
           path="/:category/:post_id"
           component={SinglePostPageWrapper}
         />
-        <Route component={PageNotFound} />
+        {/* <Route component={PageNotFound} /> */}
       </Switch>
     </div>
   );

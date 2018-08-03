@@ -13,7 +13,7 @@ class PostItems extends Component {
     // debugger;
     if (
       currentCategory &&
-      this.props.categories.indexOf(currentCategory) === -1 &&
+      this.props.categories.filter(c => c.name === currentCategory).length === 0 &&
       this.props.categories.length > 0
     ) {
       this.props.redirectToError();
