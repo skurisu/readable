@@ -1,4 +1,4 @@
-# MyReads
+# Readable
 
 Readable is an app that allows you to discuss specific topics by adding comments.  Comments can be filtered by topic and sorted by timestamp and number of upvotes.  This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
